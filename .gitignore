@@ -1,0 +1,15 @@
+*.pyc
+goose.egg-info/
+build/
+dist/
+.DS_Store*
+._.DS_Store*
+env/
+*~
+.idea
+._*
+*.egg
+venv/
+
+.ipynb_checkpoints/
+
