@@ -18,35 +18,48 @@ def main():
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-                                    ["Show instructions", "Run the app", "Show the source code"])
-    if app_mode == "Show instructions":
-        st.sidebar.success('To continue select "Run the app".')
-    elif app_mode == "Show the source code":
+                                    ["Test Benchmark Datasets", "Test Single Image", "Test Single Video"])
+    upscale_factor = st.sidebar.selectbox('Please give the upscale factor', (2, 4, 8))
+    if app_mode == "Test Benchmark Datasets":
+        st.subheader("Test Benchmark Datasets")
+
         readme_text.empty()
         st.code(get_file_content_as_string("app.py"))
-    elif app_mode == "Run the app":
+    elif app_mode == "Test Single Image":
+        st.subheader("Test Single Image")
+
         readme_text.empty()
-        run_the_app()
+        uploaded_file = st.file_uploader("Upload a LR image", type=['png', 'jpg'])
+
+        if uploaded_file is not None:
+            lr_image = Image.open(uploaded_file)
+            st.text("Original Image")
+            st.image(lr_image)
+
+            if st.button('SR it!'):
+                test_single_image(lr_image, upscale_factor)
+
+    elif app_mode == "Test Single Video":
+        st.subheader("Test Single Video")
+
+        readme_text.empty()
 
 
 # This is the main app app itself, which appears when the user selects "Run the app".
-def run_the_app():
-    UPSCALE_FACTOR = st.sidebar.selectbox('Please give the upscale factor', (2, 4, 8))
+def test_single_image(lr_image, upscale_factor):
     TEST_MODE = False
-    IMAGE_NAME = 'BSD100_007.png'
     MODEL_NAME = 'netG_epoch_4_100.pth'
 
-    st.image(IMAGE_NAME, use_column_width=True)
+    st.image(lr_image, use_column_width=True)
     st.write('The original LR image')
-    model = Generator(UPSCALE_FACTOR).eval()
+    model = Generator(upscale_factor).eval()
     if TEST_MODE:
         model.cuda()
         model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
     else:
         model.load_state_dict(torch.load('epochs/' + MODEL_NAME, map_location=lambda storage, loc: storage))
 
-    image = Image.open(IMAGE_NAME)
-    image = Variable(ToTensor()(image), volatile=True).unsqueeze(0)
+    image = Variable(ToTensor()(lr_image), volatile=True).unsqueeze(0)
     if TEST_MODE:
         image = image.cuda()
 
@@ -55,9 +68,7 @@ def run_the_app():
     elapsed = (time.clock() - start)
     print('cost' + str(elapsed) + 's')
     out_img = ToPILImage()(out[0].data.cpu())
-    out_img_name = 'out_srf_' + str(UPSCALE_FACTOR) + '_' + IMAGE_NAME
-    out_img.save(out_img_name)
-    st.image(out_img_name, use_column_width=True)
+    st.image(out_img, use_column_width=True)
     st.write('The output SR image')
 
 
