@@ -1,13 +1,14 @@
-import time
+from os import listdir
+from os.path import join
+import random
 import urllib
 
 import streamlit as st
-import torch
 from PIL import Image
-from torch.autograd import Variable
-from torchvision.transforms import ToTensor, ToPILImage
 
-from model import Generator
+from data_utils import is_image_file
+from test_benchmark import test_benchmark
+from test_image import test_single_image
 
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
@@ -24,7 +25,15 @@ def main():
         st.subheader("Test Benchmark Datasets")
 
         readme_text.empty()
-        st.code(get_file_content_as_string("app.py"))
+        test_benchmark(upscale_factor)
+
+        out_path = 'benchmark_results/SRF_' + str(upscale_factor) + '/'
+        image_filenames = [join(out_path, x) for x in listdir(out_path) if is_image_file(x)]
+        result_images = random.sample(image_filenames, 4)
+        for index, result_image in enumerate(result_images):
+            st.image(result_image, use_column_width=True)
+            st.write('Sample result {}'.format(index))
+
     elif app_mode == "Test Single Image":
         st.subheader("Test Single Image")
 
@@ -43,33 +52,7 @@ def main():
         st.subheader("Test Single Video")
 
         readme_text.empty()
-
-
-# This is the main app app itself, which appears when the user selects "Run the app".
-def test_single_image(lr_image, upscale_factor):
-    TEST_MODE = False
-    MODEL_NAME = 'netG_epoch_4_100.pth'
-
-    st.image(lr_image, use_column_width=True)
-    st.write('The original LR image')
-    model = Generator(upscale_factor).eval()
-    if TEST_MODE:
-        model.cuda()
-        model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
-    else:
-        model.load_state_dict(torch.load('epochs/' + MODEL_NAME, map_location=lambda storage, loc: storage))
-
-    image = Variable(ToTensor()(lr_image), volatile=True).unsqueeze(0)
-    if TEST_MODE:
-        image = image.cuda()
-
-    start = time.clock()
-    out = model(image)
-    elapsed = (time.clock() - start)
-    print('cost' + str(elapsed) + 's')
-    out_img = ToPILImage()(out[0].data.cpu())
-    st.image(out_img, use_column_width=True)
-    st.write('The output SR image')
+        st.info("Feature coming soon!")
 
 
 # Download a single file and make its content available as a string.
