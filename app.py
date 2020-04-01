@@ -64,7 +64,7 @@ def run_the_app():
 # Download a single file and make its content available as a string.
 @st.cache(show_spinner=False)
 def get_file_content_as_string(path):
-    url = 'https://raw.githubusercontent.com/streamlit/demo-self-driving/master/' + path
+    url = 'https://raw.githubusercontent.com/ENGI9805-COMPUTER-VISION/Term-Project/master/' + path
     response = urllib.request.urlopen(url)
     return response.read().decode("utf-8")
 
