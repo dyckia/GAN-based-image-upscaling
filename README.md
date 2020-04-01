@@ -39,6 +39,12 @@ Run the app
 streamlit run app.python
 ```
 
+### Available models
+
+- [ ] netG epoch 100 upscale factor 2
+- [x] netG epoch 100 upscale factor 4
+- [x] netG epoch 100 upscale factor 8
+
 ## Checklist
 
 - [x] Machine learning resource management
