@@ -17,7 +17,7 @@ from model import Generator
 
 @st.cache()
 def test_benchmark(upscale_factor):
-    MODEL_NAME = 'netG_epoch_4_100.pth'
+    model_name = 'netG_epoch_{}_100.pth'.format(upscale_factor)
 
     results = {'Set5': {'psnr': [], 'ssim': []}, 'Set14': {'psnr': [], 'ssim': []}, 'BSD100': {'psnr': [], 'ssim': []},
                'Urban100': {'psnr': [], 'ssim': []}, 'SunHays80': {'psnr': [], 'ssim': []}}
@@ -25,7 +25,7 @@ def test_benchmark(upscale_factor):
     model = Generator(upscale_factor).eval()
     if torch.cuda.is_available():
         model = model.cuda()
-    model.load_state_dict(torch.load('epochs/' + MODEL_NAME,  map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load('epochs/' + model_name,  map_location=torch.device('cpu')))
 
     test_set = TestDatasetFromFolder('data/test', upscale_factor=upscale_factor)
     test_loader = DataLoader(dataset=test_set, num_workers=4, batch_size=1, shuffle=False)

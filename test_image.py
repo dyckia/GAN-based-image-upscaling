@@ -9,20 +9,20 @@ from model import Generator
 
 
 def test_single_image(lr_image, upscale_factor):
-    TEST_MODE = False
-    MODEL_NAME = 'netG_epoch_4_100.pth'
+    test_mode = False
+    model_name = 'netG_epoch_{}_100.pth'.format(upscale_factor)
 
     st.image(lr_image, use_column_width=True)
     st.write('The original LR image')
     model = Generator(upscale_factor).eval()
-    if TEST_MODE:
+    if test_mode:
         model.cuda()
-        model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
+        model.load_state_dict(torch.load('epochs/' + model_name))
     else:
-        model.load_state_dict(torch.load('epochs/' + MODEL_NAME, map_location=lambda storage, loc: storage))
+        model.load_state_dict(torch.load('epochs/' + model_name, map_location=lambda storage, loc: storage))
 
     image = Variable(ToTensor()(lr_image), volatile=True).unsqueeze(0)
-    if TEST_MODE:
+    if test_mode:
         image = image.cuda()
 
     start = time.clock()
