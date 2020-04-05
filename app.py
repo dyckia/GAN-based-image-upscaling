@@ -1,3 +1,4 @@
+import os
 from os import listdir
 from os.path import join
 import random
@@ -12,6 +13,16 @@ from test_image import test_single_image
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
 from test_video import test_single_video
+
+
+def get_display_name(image_path):
+    image_name = os.path.split(image_path)[1]
+    psnr = "psnr"
+    ssim = "ssim"
+    psnr_pos = image_name.find(psnr)
+    ssim_pos = image_name.find(ssim)
+    return image_name[:psnr_pos-1] + " with PSNR=" + image_name[psnr_pos+5:ssim_pos-1] + \
+        " and SSIM=" + image_name[ssim_pos+5:-4]
 
 
 def main():
@@ -35,7 +46,7 @@ def main():
         result_images = random.sample(image_filenames, 4)
         for index, result_image in enumerate(result_images):
             st.image(result_image, use_column_width=True)
-            st.write('Sample result {}'.format(index))
+            st.write(get_display_name(result_image))
 
     elif app_mode == "Process Single Image":
         st.subheader("Process Single Image")
