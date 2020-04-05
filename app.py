@@ -10,8 +10,10 @@ from data_utils import is_image_file
 from test_benchmark import test_benchmark
 from test_image import test_single_image
 
-
 # Streamlit encourages well-structured code, like starting execution in a main() function.
+from test_video import test_single_video
+
+
 def main():
     # Render the readme as markdown using st.markdown.
     readme_text = st.markdown(get_file_content_as_string("instructions.md"))
@@ -19,14 +21,15 @@ def main():
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-                                    ["Test Benchmark Datasets", "Test Single Image", "Test Single Video"])
+                                    ["Show Benchmark Datasets", "Process Single Image", "Process Single Video"])
     upscale_factor = st.sidebar.selectbox('Please give the upscale factor', (2, 4, 8))
-    if app_mode == "Test Benchmark Datasets":
-        st.subheader("Test Benchmark Datasets")
+    if app_mode == "Show Benchmark Datasets":
+        st.subheader("Show Benchmark Datasets")
 
         readme_text.empty()
-        test_benchmark(upscale_factor)
+        data_frame = test_benchmark(upscale_factor)
 
+        st.dataframe(data_frame)
         out_path = 'benchmark_results/SRF_' + str(upscale_factor) + '/'
         image_filenames = [join(out_path, x) for x in listdir(out_path) if is_image_file(x)]
         result_images = random.sample(image_filenames, 4)
@@ -34,8 +37,8 @@ def main():
             st.image(result_image, use_column_width=True)
             st.write('Sample result {}'.format(index))
 
-    elif app_mode == "Test Single Image":
-        st.subheader("Test Single Image")
+    elif app_mode == "Process Single Image":
+        st.subheader("Process Single Image")
 
         readme_text.empty()
         uploaded_file = st.file_uploader("Upload a LR image", type=['png', 'jpg'])
@@ -48,11 +51,30 @@ def main():
             if st.button('SR it!'):
                 test_single_image(lr_image, upscale_factor)
 
-    elif app_mode == "Test Single Video":
-        st.subheader("Test Single Video")
+    elif app_mode == "Process Single Video":
+        st.subheader("Process Single Video")
 
         readme_text.empty()
         st.info("Feature coming soon!")
+        # video_name = 'VC.mp4'
+        # video_file = open(video_name, 'rb')
+        # video_bytes = video_file.read()
+        # st.video(video_bytes)
+        # st.text("Original Video")
+        #
+        # test_single_video(video_name, upscale_factor)
+        #
+        # output_sr_name = 'out_srf_' + str(upscale_factor) + '_' + video_name.split('.')[0] + '.mp4'
+        # output_sr_video = open(output_sr_name, 'rb')
+        # output_sr_bytes = output_sr_video.read()
+        # st.video(output_sr_bytes)
+        # st.text("The output SR Video")
+        #
+        # output_compared_name = 'compare_srf_' + str(upscale_factor) + '_' + video_name.split('.')[0] + '.mp4'
+        # output_compared_video = open(output_compared_name, 'rb')
+        # output_compared_bytes = output_compared_video.read()
+        # st.video(output_compared_bytes)
+        # st.text("The output compared Video")
 
 
 # Download a single file and make its content available as a string.

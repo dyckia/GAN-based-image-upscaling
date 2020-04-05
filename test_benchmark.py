@@ -75,4 +75,4 @@ def test_benchmark(upscale_factor):
 
     data_frame = pd.DataFrame(saved_results, results.keys())
     data_frame.to_csv(out_path + 'srf_' + str(upscale_factor) + '_test_results.csv', index_label='DataSet')
-
+    return data_frame
