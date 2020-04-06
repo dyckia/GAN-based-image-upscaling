@@ -46,7 +46,9 @@ def main():
         result_images = random.sample(image_filenames, 4)
         for index, result_image in enumerate(result_images):
             st.image(result_image, use_column_width=True)
-            st.write(get_display_name(result_image))
+            st.write(get_display_name(result_image))     
+        st.markdown('#### PSNR:Peak Signal-to-Noise Ratio ')
+        st.markdown('#### SSIM:Structural Similarity Index ')
 
     elif app_mode == "Process Single Image":
         st.subheader("Process Single Image")
