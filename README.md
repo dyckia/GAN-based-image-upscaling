@@ -52,7 +52,7 @@ streamlit run app.py
 - [x] Machine learning training
 - [x] Integrating trained model with web app
 - [ ] Process Single Video(Ian)
-- [ ] Add statistic terms definition
+- [x] Add statistic terms definition
 - [ ] Deploying the web app on cloud hosting platform
 - [ ] Writing project report
     - [ ] introduction
