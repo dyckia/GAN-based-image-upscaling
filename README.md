@@ -51,6 +51,14 @@ streamlit run app.py
 - [x] Data ingestion and collection
 - [x] Machine learning training
 - [x] Integrating trained model with web app
+- [ ] Process Single Video(Ian)
+- [ ] Add statistic terms definition
 - [ ] Deploying the web app on cloud hosting platform
 - [ ] Writing project report
+    - [ ] introduction
+    - [ ] problem definition
+    - [ ] proposed solution(Ian)
+    - [ ] results and discussion
+    - [ ] conclusion
+- [ ] Writing presentation slides
 - [ ] Recording project presentation
