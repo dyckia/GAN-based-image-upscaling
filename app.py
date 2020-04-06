@@ -52,7 +52,7 @@ def main():
         st.subheader("Process Single Image")
 
         readme_text.empty()
-        uploaded_file = st.file_uploader("Upload a LR image", type=['png', 'jpg'])
+        uploaded_file = st.file_uploader("Upload a low resolution image", type=['png', 'jpg'])
 
         if uploaded_file is not None:
             lr_image = Image.open(uploaded_file)
