@@ -31,7 +31,7 @@ def main():
 
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
-    app_mode = st.sidebar.selectbox("Choose an app mode",
+    app_mode = st.sidebar.selectbox("Choose the app mode",
                                     ["Process Single Image", "Process Single Video", "Show Benchmark Datasets"])
     upscale_factor = st.sidebar.selectbox('Please select an upscale factor', (4, 2, 8))
     if app_mode == "Show Benchmark Datasets":
