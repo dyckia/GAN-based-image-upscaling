@@ -28,7 +28,7 @@ conda create -n srgan_env python=3.6.8
 and activate environment
 
 ```
-activate srgan_env
+conda activate srgan_env
 ```
 
 Then you need to install the project dependencies
