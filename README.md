@@ -63,7 +63,7 @@ streamlit run app.py
     - [x] Fix deployment error (Jason)
     - [ ] Add Image size check
 - [ ] **Write project report**
-    - [ ] Abstract
+    - [ ] Abstract (Jason)
     - [ ] Introduction (Jason)
     - [ ] Problem definition (Luo)
     - [ ] Proposed solution (Ian)
