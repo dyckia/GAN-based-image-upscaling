@@ -12,8 +12,9 @@ def test_single_image(lr_image, upscale_factor):
     test_mode = False
     model_name = 'netG_epoch_{}_100.pth'.format(upscale_factor)
 
+    st.write('**The original image**')
     st.image(lr_image, use_column_width=True)
-    st.write('The original LR image')
+    
     model = Generator(upscale_factor).eval()
     if test_mode:
         model.cuda()
@@ -30,7 +31,7 @@ def test_single_image(lr_image, upscale_factor):
     start = time.clock()
     out = model(image)
     elapsed = (time.clock() - start)
-    print('cost' + str(elapsed) + 's')
+    print('Process time: ' + str(elapsed) + 's')
     out_img = ToPILImage()(out[0].data.cpu())
+    st.write('**The upscaled image**')
     st.image(out_img, use_column_width=True)
-    st.write('The output SR image')
