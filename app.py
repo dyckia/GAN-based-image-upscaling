@@ -12,7 +12,7 @@ from test_benchmark import test_benchmark
 from test_image import test_single_image
 
 # Streamlit encourages well-structured code, like starting execution in a main() function.
-from test_video import test_single_video
+# from test_video import test_single_video
 
 
 def get_display_name(image_path):
@@ -32,7 +32,7 @@ def main():
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-                                    ["Show Benchmark Datasets", "Process Single Image", "Process Single Video"])
+                                    ["Process Single Image", "Process Single Video", "Show Benchmark Datasets"])
     upscale_factor = st.sidebar.selectbox('Please give the upscale factor', (2, 4, 8))
     if app_mode == "Show Benchmark Datasets":
         st.subheader("Show Benchmark Datasets")
