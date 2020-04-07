@@ -61,6 +61,7 @@ streamlit run app.py
     - [x] Add startup file (Jason)
     - [x] Inject necessary dependencies (Jason)
     - [x] Fix deployment error (Jason)
+    - [ ] Add Image size check
 - [ ] **Write project report**
     - [ ] introduction (Jason)
     - [ ] problem definition (Luo)
