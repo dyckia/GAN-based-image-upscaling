@@ -47,7 +47,7 @@ streamlit run app.py
 
 ## Work Log
 
-- [ ] Build the program
+- [ ] **Build the program**
     - [x] Machine learning resource management
     - [x] Data ingestion and collection (Jason)
     - [x] Model training (Jason, Luo)
@@ -57,15 +57,15 @@ streamlit run app.py
     - [ ] Fix png file alpha channel bug
     - [ ] Fix Show Benchmark Datasets bug
     - [ ] Refactor code and add comments
-- [x] Deploying working demo on cloud hosting platform
+- [x] **Deploying working demo on cloud hosting platform**
     - [ ] Add startup file (Jason)
     - [ ] Inject necessary dependencies (Jason)
     - [ ] Fix deployment error (Jason)
-- [ ] Write project report
+- [ ] **Write project report**
     - [ ] introduction (Jason)
     - [ ] problem definition (Luo)
     - [ ] proposed solution (Ian)
     - [ ] results and discussion
     - [ ] conclusion
-- [ ] Write presentation slides
-- [ ] Record presentation video
+- [ ] **Write presentation slides**
+- [ ] **Record presentation video**
