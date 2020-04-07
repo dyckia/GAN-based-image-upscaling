@@ -2,6 +2,9 @@
 A web app for generating Super-Resolution Image/Video based on SRGAN.
 
 Try the [demo](https://srgan.herokuapp.com/).
+![screenshot](asset/1.png "Screenshot")
+
+
 
 ## Installation
 
