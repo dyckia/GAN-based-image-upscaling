@@ -19,7 +19,7 @@ cd into the project root folder
 cd Term-Project
 ```
 
-### Create virtual environment
+Create a conda virtual environment
 
 ```
 conda create -n srgan_env python=3.6.8
