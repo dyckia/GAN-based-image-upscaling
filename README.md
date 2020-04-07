@@ -58,9 +58,9 @@ streamlit run app.py
     - [ ] Fix Show Benchmark Datasets bug
     - [ ] Refactor code and add comments
 - [x] **Deploying working demo on cloud hosting platform**
-    - [ ] Add startup file (Jason)
-    - [ ] Inject necessary dependencies (Jason)
-    - [ ] Fix deployment error (Jason)
+    - [x] Add startup file (Jason)
+    - [x] Inject necessary dependencies (Jason)
+    - [x] Fix deployment error (Jason)
 - [ ] **Write project report**
     - [ ] introduction (Jason)
     - [ ] problem definition (Luo)
