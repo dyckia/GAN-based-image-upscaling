@@ -57,7 +57,7 @@ streamlit run app.py
     - [ ] Fix png file alpha channel bug
     - [ ] Fix Show Benchmark Datasets bug
     - [ ] Refactor code and add comments
-- [x] **Deploying working demo on cloud hosting platform**
+- [x] **Deploy working demo on Heroku platform**
     - [x] Add startup file (Jason)
     - [x] Inject necessary dependencies (Jason)
     - [x] Fix deployment error (Jason)
