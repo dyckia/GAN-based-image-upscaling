@@ -17,7 +17,7 @@ cd Term-Project
 ### Create virtual environment
 
 ```
-conda create -n srgan_env python=3.7.6
+conda create -n srgan_env python=3.6.8
 ```
 
 and activate environment
@@ -45,20 +45,27 @@ streamlit run app.py
 - [x] netG epoch 100 upscale factor 4
 - [x] netG epoch 100 upscale factor 8
 
-## Checklist
+## Work Log
 
-- [x] Machine learning resource management
-- [x] Data ingestion and collection
-- [x] Machine learning training
-- [x] Integrating trained model with web app
-- [ ] Process Single Video(Ian)
-- [x] Add statistic terms definition
-- [ ] Deploying the web app on cloud hosting platform
-- [ ] Writing project report
-    - [ ] introduction
-    - [ ] problem definition
-    - [ ] proposed solution(Ian)
+- [ ] Build the program
+    - [x] Machine learning resource management
+    - [x] Data ingestion and collection (Jason)
+    - [x] Model training (Jason, Luo)
+    - [x] Integrating trained model with web app
+    - [ ] Process Single Video (Ian)
+    - [x] Add statistic terms definition
+    - [ ] Fix png file alpha channel bug
+    - [ ] Fix Show Benchmark Datasets bug
+    - [ ] Refactor code and add comments
+- [x] Deploying working demo on cloud hosting platform
+    - [ ] Add startup file (Jason)
+    - [ ] Inject necessary dependencies (Jason)
+    - [ ] Fix deployment error (Jason)
+- [ ] Write project report
+    - [ ] introduction (Jason)
+    - [ ] problem definition (Luo)
+    - [ ] proposed solution (Ian)
     - [ ] results and discussion
     - [ ] conclusion
-- [ ] Writing presentation slides
-- [ ] Recording project presentation
+- [ ] Write presentation slides
+- [ ] Record presentation video
