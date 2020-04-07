@@ -8,7 +8,7 @@ Try the [demo](https://srgan.herokuapp.com/).
 
 ## Installation
 
-Clone the report
+Clone the repo
 
 ```
 git clone git@github.com:ENGI9805-COMPUTER-VISION/Term-Project.git
