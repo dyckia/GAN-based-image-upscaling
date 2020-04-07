@@ -1,5 +1,7 @@
 # Term-Project
-A web app for SRGAN
+A web app for generating Super-Resolution Image/Video based on SRGAN.
+
+Try the [demo](https://srgan.herokuapp.com/).
 
 ## Installation
 
