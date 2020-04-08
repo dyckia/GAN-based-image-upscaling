@@ -1,4 +1,4 @@
-# Term-Project
+# Course Project - ENGI 9805 Computer Vision 
 A web app for generating Super-Resolution Image/Video based on [SRGAN](https://arxiv.org/abs/1609.04802).
 
 Try the [demo](https://srgan.herokuapp.com/).
@@ -55,6 +55,7 @@ streamlit run app.py
 - [ ] **Build the program**
     - [x] Machine learning resource management
     - [x] Data ingestion and collection (Jason)
+    - [x] Setup & configure cloud computing environment for GPU training (Jason)
     - [x] Model training (Jason, Luo)
     - [x] Integrating trained model with web app
     - [ ] Process Single Video (Ian)
@@ -68,6 +69,7 @@ streamlit run app.py
     - [x] Fix deployment error (Jason)
     - [ ] Add Image size check
 - [ ] **Write project report**
+    - [x] Choose a suitable template and fine-tune the layout & style (Jason)
     - [ ] Abstract (Jason)
     - [ ] Introduction (Jason)
     - [ ] Problem definition (Luo)
@@ -75,4 +77,14 @@ streamlit run app.py
     - [ ] Results and discussion
     - [ ] Conclusion
 - [ ] **Write presentation slides**
+    - [x] Choose a suitable template and fine-tune the layout & style (Jason)
+    - [ ] Background
+    - [ ] Motivation
+    - [ ] Our Solution
+    - [ ] Result
+    - [ ] Demo
+    - [ ] Conclusion & Futrue Work
+    - [ ] References
 - [ ] **Record presentation video**
+    - [ ] Slides part
+    - [ ] Demo part
