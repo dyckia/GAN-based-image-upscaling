@@ -34,11 +34,12 @@ def main():
     app_mode = st.sidebar.selectbox("Choose the app mode",
                                     ["Show Benchmark Datasets", "Process Single Image", "Process Single Video"])
     upscale_factor = st.sidebar.selectbox('Please give the upscale factor', (2, 4, 8))
+    epoch_num = st.sidebar.slider('Please give the epoch number', 90, 100, 100)
     if app_mode == "Show Benchmark Datasets":
         st.subheader("Show Benchmark Datasets")
 
         readme_text.empty()
-        data_frame = test_benchmark(upscale_factor)
+        data_frame = test_benchmark(upscale_factor, epoch_num)
 
         st.dataframe(data_frame)
         out_path = 'benchmark_results/SRF_' + str(upscale_factor) + '/'
@@ -62,7 +63,7 @@ def main():
             st.image(lr_image)
 
             if st.button('SR it!'):
-                test_single_image(lr_image, upscale_factor)
+                test_single_image(lr_image, upscale_factor, epoch_num)
 
     elif app_mode == "Process Single Video":
         st.subheader("Process Single Video")
