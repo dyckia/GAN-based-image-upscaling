@@ -37,8 +37,15 @@ def test_benchmark(upscale_factor, epoch_num):
 
     for image_name, lr_image, hr_restore_img, hr_image in test_bar:
         image_name = image_name[0]
-        lr_image = Variable(lr_image, volatile=True)
-        hr_image = Variable(hr_image, volatile=True)
+
+        # volatile is no longer available
+        # lr_image = Variable(lr_image, volatile=True)
+        # hr_image = Variable(hr_image, volatile=True)
+        # image = Variable(ToTensor()(lr_image), volatile=True).unsqueeze(0)
+        with torch.no_grad():
+            lr_image = Variable(lr_image)
+            hr_image = Variable(hr_image)
+        
         if torch.cuda.is_available():
             lr_image = lr_image.cuda()
             hr_image = hr_image.cuda()

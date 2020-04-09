@@ -33,11 +33,12 @@ def main():
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-                                    ["Process Single Image", "Process Single Video", "Show Benchmark Datasets"])
+                                    ["Show Benchmark Datasets", "Process Single Image", "Process Single Video"])
     upscale_factor = st.sidebar.selectbox('Please select an upscale factor', (2, 4, 8))
-    epoch_num = st.sidebar.slider('Please give the epoch number', 90, 100, 100)
+    
     if app_mode == "Show Benchmark Datasets":
-        st.subheader("Show Benchmark Datasets")
+        st.header("Benchmark Results")
+        st.subheader('Statistics Data at {}x upscale factor'.format(upscale_factor))
 
         readme_text.empty()
         # data_frame = test_benchmark(upscale_factor, epoch_num)
@@ -48,21 +49,25 @@ def main():
         out_path = 'benchmark_results/SRF_' + str(upscale_factor) + '/'
         image_filenames = [join(out_path, x) for x in listdir(out_path) if is_image_file(x)]
         result_images = random.sample(image_filenames, 4)
+        st.subheader('Randomly selected test results (scaled at {}x)'.format(upscale_factor))
+        st.markdown("> **Left:** Low-res Image, **Mid:** Ground Truth, **Right:** Super-res Image")
+        st.markdown("")
         for index, result_image in enumerate(result_images):
+            st.markdown("- " + get_display_name(result_image))
             st.image(result_image, use_column_width=True)
-            st.write(get_display_name(result_image))     
         st.markdown('#### PSNR:Peak Signal-to-Noise Ratio ')
         st.markdown('#### SSIM:Structural Similarity Index ')
 
     elif app_mode == "Process Single Image":
         st.subheader("Process Single Image")
+        epoch_num = st.sidebar.slider('Choose the epoch number of the model', 90, 100, 100)
 
         readme_text.empty()
         uploaded_file = st.file_uploader("Upload a low resolution image", type=['png', 'jpg'])
-
+        
         if uploaded_file is not None:
             lr_image = Image.open(uploaded_file)
-            st.text("Original Image")
+            st.text("Your Uploaded Image")
             st.image(lr_image)
 
             if st.button('Generate'):
@@ -70,6 +75,7 @@ def main():
 
     elif app_mode == "Process Single Video":
         st.subheader("Process Single Video")
+        epoch_num = st.sidebar.slider('Choose the epoch number of the model', 90, 100, 100)
 
         readme_text.empty()
         st.info("Feature coming soon!")
