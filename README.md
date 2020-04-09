@@ -80,7 +80,7 @@ streamlit run app.py
 - [ ] **Write presentation slides**
     - [x] Choose a suitable template and fine-tune the layout & style (Jason)
     - [x] Background & Motivation (Jason)
-    - [ ] Our Solution
+    - [x] Our Solution
     - [ ] Result
     - [x] Demo (Jason)
     - [ ] Conclusion & Futrue Work 
