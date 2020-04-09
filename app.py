@@ -38,7 +38,7 @@ def main():
     
     if app_mode == "Show Benchmark Datasets":
         st.header("Benchmark Results")
-        st.subheader('Statistics Data at {}x upscale factor'.format(upscale_factor))
+        st.subheader('Statistical Data at {}x upscale factor'.format(upscale_factor))
 
         readme_text.empty()
         # data_frame = test_benchmark(upscale_factor, epoch_num)
