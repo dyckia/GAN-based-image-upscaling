@@ -68,18 +68,18 @@ streamlit run app.py
     - [x] Inject necessary dependencies (Jason)
     - [x] Fix deployment error (Jason)
     - [ ] Add Image size check
-- [ ] **Write project report**
+- [x] **Write project report**
     - [x] Choose a suitable template and fine-tune the layout & style (Jason)
     - [x] Abstract (Jason)
     - [x] Introduction (Jason)
-    - [ ] Problem definition (Luo)
+    - [x] Problem definition (Luo)
     - [x] Proposed solution (Ian)
-    - [x] Results and discussion
-    - [ ] Conclusion
+    - [x] Results and discussion (Jason & Luo)
+    - [x] Conclusion (Ian)
     - [x] Reference (Jason)
 - [ ] **Write presentation slides**
     - [x] Choose a suitable template and fine-tune the layout & style (Jason)
-    - [ ] Background & Motivation (Jason)
+    - [x] Background & Motivation (Jason)
     - [ ] Our Solution
     - [ ] Result
     - [x] Demo (Jason)
