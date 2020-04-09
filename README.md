@@ -73,8 +73,8 @@ streamlit run app.py
     - [x] Abstract (Jason)
     - [x] Introduction (Jason)
     - [ ] Problem definition (Luo)
-    - [ ] Proposed solution (Ian)
-    - [ ] Results and discussion
+    - [x] Proposed solution (Ian)
+    - [x] Results and discussion
     - [ ] Conclusion
     - [x] Reference (Jason)
 - [ ] **Write presentation slides**
