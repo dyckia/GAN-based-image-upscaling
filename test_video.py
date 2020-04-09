@@ -12,23 +12,17 @@ from tqdm import tqdm
 from model import Generator
 
 
-def test_single_video(lr_image, upscale_factor):
-    parser = argparse.ArgumentParser(description='Test Single Video')
-    parser.add_argument('--video_name', type=str, help='test low resolution video name')
-    parser.add_argument('--model_name', default='netG_epoch_4_100.pth', type=str, help='generator model epoch name')
-    opt = parser.parse_args()
-
-    VIDEO_NAME = opt.video_name
-    MODEL_NAME = opt.model_name
+def test_single_video(video_name, upscale_factor):
+    model_name = 'netG_epoch_4_100.pth'
 
     model = Generator(upscale_factor).eval()
     if torch.cuda.is_available():
         model = model.cuda()
     # for cpu
-    # model.load_state_dict(torch.load('epochs/' + MODEL_NAME, map_location=lambda storage, loc: storage))
-    model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
+    model.load_state_dict(torch.load('epochs/' + model_name, map_location=lambda storage, loc: storage))
+    # model.load_state_dict(torch.load('epochs/' + model_name))
 
-    videoCapture = cv2.VideoCapture(VIDEO_NAME)
+    videoCapture = cv2.VideoCapture(video_name)
     fps = videoCapture.get(cv2.CAP_PROP_FPS)
     frame_numbers = videoCapture.get(cv2.CAP_PROP_FRAME_COUNT)
     sr_video_size = (int(videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH) * upscale_factor),
@@ -39,10 +33,11 @@ def test_single_video(lr_image, upscale_factor):
                                    10 * int(int(
                                        videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH) * upscale_factor) // 5 + 1)) * int(
                                    int(videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH) * upscale_factor) // 5 - 9)))
-    output_sr_name = 'out_srf_' + str(upscale_factor) + '_' + VIDEO_NAME.split('.')[0] + '.avi'
-    output_compared_name = 'compare_srf_' + str(upscale_factor) + '_' + VIDEO_NAME.split('.')[0] + '.avi'
-    sr_video_writer = cv2.VideoWriter(output_sr_name, cv2.VideoWriter_fourcc('M', 'P', 'E', 'G'), fps, sr_video_size)
-    compared_video_writer = cv2.VideoWriter(output_compared_name, cv2.VideoWriter_fourcc('M', 'P', 'E', 'G'), fps,
+    output_sr_name = 'out_srf_' + str(upscale_factor) + '_' + video_name.split('.')[0] + '.avi'
+    output_compared_name = 'compare_srf_' + str(upscale_factor) + '_' + video_name.split('.')[0] + '.avi'
+    fourcc = cv2.VideoWriter_fourcc('M', 'P', 'E', 'G')
+    sr_video_writer = cv2.VideoWriter(output_sr_name, fourcc, fps, sr_video_size)
+    compared_video_writer = cv2.VideoWriter(output_compared_name, fourcc, fps,
                                             compared_video_size)
     # read frame
     success, frame = videoCapture.read()

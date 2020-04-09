@@ -16,7 +16,7 @@ from model import Generator
 
 
 @st.cache()
-def test_benchmark(upscale_factor):
+def test_benchmark(upscale_factor, epoch_num):
     model_name = 'netG_epoch_{}_100.pth'.format(upscale_factor)
 
     results = {'Set5': {'psnr': [], 'ssim': []}, 'Set14': {'psnr': [], 'ssim': []}, 'BSD100': {'psnr': [], 'ssim': []},
@@ -65,8 +65,8 @@ def test_benchmark(upscale_factor):
         psnr = np.array(item['psnr'])
         ssim = np.array(item['ssim'])
         if (len(psnr) == 0) or (len(ssim) == 0):
-            psnr = 'No data'
-            ssim = 'No data'
+            psnr = 'N/A'
+            ssim = 'N/A'
         else:
             psnr = psnr.mean()
             ssim = ssim.mean()

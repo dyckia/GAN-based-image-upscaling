@@ -8,9 +8,9 @@ from torchvision.transforms import ToTensor, ToPILImage
 from model import Generator
 
 
-def test_single_image(lr_image, upscale_factor):
+def test_single_image(lr_image, upscale_factor, epoch_num):
     test_mode = False
-    model_name = 'netG_epoch_{}_100.pth'.format(upscale_factor)
+    model_name = 'netG_epoch_{}_{}.pth'.format(upscale_factor, epoch_num)
 
     st.write('**The original image**')
     st.image(lr_image, use_column_width=True)
