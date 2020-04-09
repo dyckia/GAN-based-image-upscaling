@@ -79,13 +79,12 @@ streamlit run app.py
     - [x] Reference (Jason)
 - [ ] **Write presentation slides**
     - [x] Choose a suitable template and fine-tune the layout & style (Jason)
-    - [ ] Background (Jason)
-    - [ ] Motivation (Jason)
+    - [ ] Background & Motivation (Jason)
     - [ ] Our Solution
     - [ ] Result
-    - [ ] Demo
-    - [ ] Conclusion & Futrue Work
-    - [ ] References
+    - [x] Demo (Jason)
+    - [ ] Conclusion & Futrue Work 
+    - [x] References (Jason)
 - [ ] **Record presentation video**
     - [ ] Slides part
     - [ ] Demo part
