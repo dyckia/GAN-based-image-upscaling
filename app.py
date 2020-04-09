@@ -34,7 +34,7 @@ def main():
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
                                     ["Process Single Image", "Process Single Video", "Show Benchmark Datasets"])
-    upscale_factor = st.sidebar.selectbox('Please select an upscale factor', (4, 2, 8))
+    upscale_factor = st.sidebar.selectbox('Please select an upscale factor', (2, 4, 8))
     epoch_num = st.sidebar.slider('Please give the epoch number', 90, 100, 100)
     if app_mode == "Show Benchmark Datasets":
         st.subheader("Show Benchmark Datasets")
@@ -42,7 +42,8 @@ def main():
         readme_text.empty()
         # data_frame = test_benchmark(upscale_factor, epoch_num)
 
-        data_frame = pd.read_csv()
+        statistics_file = 'statistics/srf_{}_test_results.csv'.format(upscale_factor)
+        data_frame = pd.read_csv(statistics_file)
         st.dataframe(data_frame)
         out_path = 'benchmark_results/SRF_' + str(upscale_factor) + '/'
         image_filenames = [join(out_path, x) for x in listdir(out_path) if is_image_file(x)]
