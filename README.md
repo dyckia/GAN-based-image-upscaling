@@ -3,7 +3,12 @@ A web app for generating photo-realistic Super-Resolution Images/Videos based on
 
 Try the [demo](https://srgan.herokuapp.com/).
 
+> Due to the hardware limitation of the server, the online version of the appliction can **only process images with size smaller than 240 x 240.**
+
+> If you want to test on larger images, please download the app and run it on your local machine.
+
 ![screenshot](asset/screenshot.png "Screenshot")
+
 
 
 ## Installation
