@@ -62,7 +62,7 @@ streamlit run app.py
     - [x] Data ingestion and collection (Jason)
     - [x] Setup & configure cloud computing environment for GPU training (Jason)
     - [x] Model training (Jason, Luo)
-    - [x] Integrating trained model with web app
+    - [x] Integrating trained model with web app（Ian)
     - [ ] Process Single Video (Ian)
     - [x] Add statistic terms definition
     - [ ] Fix png file alpha channel error
