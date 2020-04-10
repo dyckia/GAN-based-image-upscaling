@@ -82,14 +82,20 @@ streamlit run app.py
     - [x] Results and discussion (Jason & Luo)
     - [x] Conclusion (Ian)
     - [x] Reference (Jason)
-- [ ] **Write presentation slides**
+    - [x] Proof read (Jason)
+- [x] **Write presentation slides**
     - [x] Choose a suitable template and fine-tune the layout & style (Jason)
     - [x] Background & Motivation (Jason)
     - [x] Our Solution (Ian)
-    - [ ] Result (Jason)
+    - [x] Result (Jason)
     - [x] Demo (Jason)
     - [x] Conclusion & Futrue Work  (Jason)
     - [x] References (Jason)
-- [ ] **Record presentation video**
-    - [ ] Slides part
-    - [ ] Demo part
+- [x] **Record presentation video**
+    - [x] Background & Motivation (Jason)
+    - [x] Our Solution (Ian)
+    - [x] Result (Jason)
+    - [x] Demo (Ian)
+    - [x] Conclusion & Futrue Work  (Jason)
+    - [x] References (Jason)
+    - [x] Video Editing (Luo)
