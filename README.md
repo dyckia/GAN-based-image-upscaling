@@ -57,45 +57,15 @@ streamlit run app.py
 
 ## Work Log
 
-- [ ] **Build the program**
+- [x] **Build the program**
     - [x] Machine learning resource management
-    - [x] Data ingestion and collection (Jason)
-    - [x] Setup & configure cloud computing environment for GPU training (Jason)
-    - [x] Model training (Jason, Luo)
-    - [x] Integrating trained model with web app（Ian)
-    - [ ] Process Single Video (Ian)
+    - [x] Data ingestion and collection
+    - [x] Setup & configure cloud computing environment for GPU training
+    - [x] Model training
+    - [x] Integrating trained model with web app
     - [x] Add statistic terms definition
-    - [ ] Fix png file alpha channel error
     - [x] Fix Show Benchmark Datasets error
-    - [ ] Refactor code and add comments
 - [x] **Deploy working demo on Heroku platform**
     - [x] Add startup file (Jason)
     - [x] Inject necessary dependencies (Jason)
     - [x] Fix deployment error (Jason)
-    - [ ] Add Image size check
-- [x] **Write project report**
-    - [x] Choose a suitable template and fine-tune the layout & style (Jason)
-    - [x] Abstract (Jason)
-    - [x] Introduction (Jason)
-    - [x] Problem definition (Luo)
-    - [x] Proposed solution (Ian)
-    - [x] Results and discussion (Jason & Luo)
-    - [x] Conclusion (Ian)
-    - [x] Reference (Jason)
-    - [x] Proof read (Jason)
-- [x] **Write presentation slides**
-    - [x] Choose a suitable template and fine-tune the layout & style (Jason)
-    - [x] Background & Motivation (Jason)
-    - [x] Our Solution (Ian)
-    - [x] Result (Jason)
-    - [x] Demo (Jason)
-    - [x] Conclusion & Futrue Work  (Jason)
-    - [x] References (Jason)
-- [x] **Record presentation video**
-    - [x] Background & Motivation (Jason)
-    - [x] Our Solution (Ian)
-    - [x] Result (Jason)
-    - [x] Demo (Ian)
-    - [x] Conclusion & Futrue Work  (Jason)
-    - [x] References (Jason)
-    - [x] Video Editing (Luo)
