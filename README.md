@@ -1,4 +1,5 @@
-# Course Project - ENGI 9805 Computer Vision 
+# GAN-based Image Super-resolution Web App
+
 A web app for generating photo-realistic Super-Resolution Images/Videos based on [SRGAN](https://arxiv.org/abs/1609.04802).
 
 Try the [demo](https://srgan.herokuapp.com/).
