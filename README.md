@@ -1,4 +1,4 @@
-# GAN-based Image Super-resolution Web App
+# GAN-Based Image Super-Resolution Web App
 
 A web app for generating photo-realistic Super-Resolution Images/Videos based on [SRGAN](https://arxiv.org/abs/1609.04802).
 
