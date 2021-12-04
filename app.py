@@ -63,7 +63,7 @@ def main():
         epoch_num = st.sidebar.slider('Choose the epoch number of the model', 90, 100, 100)
 
         readme_text.empty()
-        uploaded_file = st.file_uploader("Upload a low resolution image", type=['png', 'jpg'])
+        uploaded_file = st.file_uploader("Upload a low resolution image (due to the hardware limitation of the server, the size of input image should be smaller than 220 x 220", type=['png', 'jpg'])
         
         if uploaded_file is not None:
             lr_image = Image.open(uploaded_file)
